@@ -1,0 +1,24 @@
+version: '2.2'
+services:
+  es:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.15.2
+    container_name: es
+    environment:
+       - discovery.type=single-node
+    ports: 
+       - 9200:9200
+    volumes:
+       - esdata:/usr/share/elasticsearch/data
+
+
+  web:
+    image: sentiment_analysis
+    container_name: sentiment_analysis_app
+    depends_on:
+      - es
+    ports: 
+      - 8501:8501
+
+volumes:
+  esdata:
+    driver: local

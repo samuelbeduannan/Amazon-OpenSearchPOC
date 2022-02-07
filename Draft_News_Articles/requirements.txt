@@ -1,0 +1,5 @@
+elasticsearch==7.15.2
+pandas==1.2.4
+requests==2.25.1
+streamlit==1.0.0
+docker-compose==1.29.2
